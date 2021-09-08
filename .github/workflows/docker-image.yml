@@ -11,11 +11,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        versions: [6]
+    strategy:
+      matrix:
+        versions: [8]
+        type: [jre8]
+        os: [buster]
+
     env:
-      repo: "govpf/hello" # Please don't forget to create the repo on Docker Hub
+      repo: "govpf/tomcat"
     steps:
 
     - name: Checkout
@@ -34,15 +37,12 @@ jobs:
       uses: docker/build-push-action@v2.6.1
       with:
         context: .
-#        context: ./${{ matrix.versions }}
-        file: ./Dockerfile
-#        file: ./${{ matrix.versions }}/Dockerfile
+        file: ./${{ matrix.versions }}/${{ matrix.type }}/${{ matrix.os }}/Dockerfile
         platforms: linux/amd64
         pull: true
         push: true
         tags: |
-          ${{ env.repo }}:latest
-#          ${{ env.repo }}:${{ matrix.versions }}
+          ${{ env.repo }}:${{ matrix.versions }}-${{ matrix.type }}-${{ matrix.os }}
 
     - name: Update repo description
       uses: peter-evans/dockerhub-description@v2.4.3
