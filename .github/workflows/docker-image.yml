@@ -13,7 +13,7 @@ jobs:
       matrix:
         versions: [8]
         type: [jre8]
-        os: [buster]
+        os: [jammy]
 
     env:
       repo: "govpf/tomcat"

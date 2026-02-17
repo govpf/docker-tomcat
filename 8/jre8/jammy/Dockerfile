@@ -1,4 +1,4 @@
-FROM tomcat:8-jre8-openjdk-buster
+FROM tomcat:8-jre8-temurin-jammy
 
 ENV TZ Pacific/Tahiti
 
