@@ -21,12 +21,6 @@ RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION
     mv postgresql-${JDBC_POSTGRESQL_VERSION}.jar postgresql.jar && \
     chmod 640 postgresql.jar
 
-# Intégration du CA SIPF
-RUN curl -o /tmp/casit.crt "https://bin.gov.pf/artifactory/ca/casit-prod2.crt"
-RUN keytool -import -noprompt -trustcacerts -file /tmp/casit.crt -alias CA_ALIAS -storepass changeit -keystore /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts
-
-#Ajout de la timezone Tahiti
-RUN rm -rf /etc/localtime ; ln -s /usr/share/zoneinfo/Pacific/Tahiti /etc/localtime
 # Suppression de l'app par défaut
 RUN rm -rf /tomcat/webapps/*
 
