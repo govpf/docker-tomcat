@@ -11,9 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        versions: [9]
-        type: [jre8]
-        os: [debian]
+        include:
+          - version: 9
+            type: jre8
+            os: debian
+
+          - version: 8
+            type: jre8
+            os: jammy
 
     env:
       repo: "govpf/tomcat"
