@@ -18,6 +18,10 @@ jobs:
           - version: 8
             type: jre8
             os: jammy
+          
+          - version: 9
+            type: jre21
+            os: debian
 
     env:
       repo: "govpf/tomcat"
