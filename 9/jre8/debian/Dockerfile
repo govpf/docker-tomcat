@@ -1,5 +1,8 @@
 FROM govpf/openjdk:8-jre-debian
 
+LABEL govpf.category="server"
+LABEL govpf.fromimage="govpf/openjdk:8-jre-debian"
+
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends wget curl pwgen ca-certificates && \
     apt-get clean && \

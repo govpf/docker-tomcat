@@ -1,5 +1,8 @@
 FROM tomcat:9.0.120-jre21-temurin
 
+LABEL govpf.category="server"
+LABEL govpf.fromimage="govpf/openjdk:9.0.120-jre21-temurin"
+
 ENV TZ=Pacific/Tahiti
 
 RUN apt-get update && apt-get install -y --no-install-recommends locales curl \
