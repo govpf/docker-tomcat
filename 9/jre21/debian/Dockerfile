@@ -1,7 +1,7 @@
-FROM tomcat:9.0.120-jre21-temurin
+FROM tomcat:9.0-jre21-temurin-noble
 
 LABEL govpf.category="server"
-LABEL govpf.fromimage="govpf/openjdk:9.0.120-jre21-temurin"
+LABEL govpf.fromimage="tomcat:9.0-jre21-temurin-noble"
 
 ENV TZ=Pacific/Tahiti
 
